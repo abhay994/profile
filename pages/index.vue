@@ -45,12 +45,12 @@ function handleImagePopup(index) {
 <template>
   <div>
     <CommonScrollTop />
-    <Header />
+    <Header/>
     <div id="smooth-wrapper">
       <div id="smooth-content">
         <main class="main-bg o-hidden">
           <HomeHeroArea />
-           <!-- <HomePortfolioArea :handleImagePopup="handleImagePopup" :portfolio_data="portfolio_data"  />  --> 
+           <!-- <HomePortfolioArea :handleImagePopup="handleImagePopup" :portfolio_data="portfolio_data"  />   -->
           <!-- <HomeBrandArea /> -->
           <AboutResume />
           <HomeCtaArea /> 

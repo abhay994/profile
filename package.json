@@ -10,13 +10,21 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@nuxt/content": "^3.3.0",
+    "@nuxtjs/mdc": "^0.15.0",
+    "@nuxtjs/tailwindcss": "^6.13.1",
+    "better-sqlite3": "^11.8.1",
     "bootstrap": "^5.3.3",
     "gsap": "^3.12.5",
     "nuxt": "^3.13.0",
+    "nuxt-toc": "^2.7.2",
     "vue": "latest",
     "vue-countup-v3": "^1.4.2",
     "vue-easy-lightbox": "^1.19.0",
     "vue-router": "latest",
     "wow.js": "^1.2.2"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.16"
   }
 }

@@ -4,6 +4,47 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-8">
+
+          <template v-if="page">
+      <CommonScrollTop />
+      <Header />
+      
+   
+
+      <article class="prose dark:prose-invert ">
+     
+
+        <h6> {{ page.body.toc.links[0]['text'] }}</h6> 
+        
+               <TocLinks :links="page.body.toc.links" />
+      
+         
+        <ContentRenderer  :value="page" />
+
+       
+<!-- 
+        <ContentDoc v-slot="{ home }">
+       {{ home.body.toc.links }}
+ 
+     </ContentDoc> -->
+     
+    </article>
+  
+         
+
+   
+
+
+      
+      
+    </template>
+    <template v-else>
+      <div class="empty-page">
+        <h1>Page Not Found</h1>
+        <p>Oops! The content you're looking for doesn't exist.</p>
+        <NuxtLink to="/">Go back home</NuxtLink>
+      </div>
+    </template>
           <!-- SINGLE BLOG POST DETAILS DESIGN AREA -->
           <div
             class="single-blog-post-details wow fadeInDown"
@@ -21,6 +62,10 @@
                 ><i class="ri-file-copy-2-fill"></i> website development</span
               >
             </div>
+            <div>{{ page.description }}</div>
+
+  
+
             <p>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
@@ -173,5 +218,16 @@
     </div>
   </section>
 </template>
+<script setup>
+  const route = useRoute()
+
+  console.log(route.path);
+  //  const { datas } = await useAsyncData('blogs', () => queryContent(route.path).findOne())
+   const  home  = await queryCollection('blog').path(route.path).first()
+  const { data: page } = await useAsyncData(route.path, () => {
+    return queryCollection('blog').path(route.path).first();
+  })
+ console.log(home.body.toc.links);
+</script>
 
  
